@@ -11,7 +11,7 @@ public class Avatar{
         this.forzaAttacco = forzaAttacco;
     }
 
-    public int attacca(PostazioneRDA postazione){
+    public int attacca(PostazioneRDA postazione)throws ArmaMalfunzionanteException, AttaccoFallitoException{
         if (!probabilitaAttacco(60)) {
             throw new AttaccoFallitoException("l'attacco non è stato effettuato");
         }

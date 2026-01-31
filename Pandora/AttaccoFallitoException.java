@@ -1,4 +1,4 @@
-public class AttaccoFallitoException extends RuntimeException{
+public class AttaccoFallitoException extends Exception{
     public AttaccoFallitoException(String message){
         super(message);
     }

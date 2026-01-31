@@ -28,12 +28,16 @@ public class PostazioneRDA{
         this.ubtanium = ubtanium;
     }
 
-    public void difendi(int attacco){
+    public void difendi(int attacco)throws DifesaInsufficienteException, UnobtaniumEsauritoException{
         if (difesa <= attacco)  {
+            this.difesa = generateRandomDifesa();
+            this.postazione = new Coordinata(Coordinata.generateRandomLatitudine(), Coordinata.generateRandomLongitudine());
             throw new DifesaInsufficienteException("la difesa non supporta l'attacco");
         }
         this.difesa = difesa - attacco;
         if (ubtanium == 0) {
+            this.postazione = new Coordinata(Coordinata.generateRandomLatitudine(), Coordinata.generateRandomLongitudine());
+            this.ubtanium = generateRandomUbtanium();
             throw new UnobtaniumEsauritoException("le miniere sono esaurite");
         }
         this.ubtanium = ubtanium -1;
